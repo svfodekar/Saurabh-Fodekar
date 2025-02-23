@@ -15,6 +15,7 @@
       color: #e0e0e0;
       line-height: 1.6;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     h1, h2, h3 {
@@ -44,7 +45,25 @@
       padding: 60px 0;
       text-align: center;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      animation: fadeInDown 1.5s ease-in-out;
+      animation: slideInFromTop 1.5s ease-in-out, glow 2s ease-in-out;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+    }
+
+    header:hover {
+      box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+    }
+
+    .profile-photo {
+      position: absolute;
+      left: 30px; /* Adjusted to move it slightly to the right */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ff6b6b;
+      animation: glowPhoto 2s ease-in-out infinite;
     }
 
     header h1 {
@@ -53,6 +72,11 @@
       font-weight: 700;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       animation: fadeIn 2s ease-in-out;
+      transition: text-shadow 0.3s ease;
+    }
+
+    header h1:hover {
+      text-shadow: 0 0 10px rgba(255, 107, 107, 0.8), 0 0 20px rgba(255, 107, 107, 0.8);
     }
 
     header p {
@@ -60,6 +84,19 @@
       font-size: 1.2em;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
       animation: fadeIn 2.5s ease-in-out;
+    }
+
+    .header-links {
+      margin-top: 10px;
+    }
+
+    .header-links a {
+      margin: 0 10px;
+      font-size: 1.1em;
+    }
+
+    .header-links a i {
+      margin-right: 5px;
     }
 
     /* Section Styles */
@@ -71,6 +108,7 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: box-shadow 0.3s ease, transform 0.3s ease;
+      animation: slideInFromBottom 1.5s ease-in-out, glow 2s ease-in-out;
     }
 
     section:hover {
@@ -202,20 +240,69 @@
       color: #e0e0e0;
     }
 
+    /* Project Links */
+    .project-links {
+      margin-top: 10px;
+    }
+
+    .project-links a {
+      margin-right: 10px;
+      font-size: 1.1em;
+      color: #888; /* Dark grey color */
+      transition: color 0.3s ease;
+    }
+
+    .project-links a:hover {
+      color: #ff6b6b;
+    }
+
     /* Page Opening Animation */
-    @keyframes pageLoad {
+    @keyframes slideInFromTop {
       0% {
         opacity: 0;
-        transform: scale(0.9);
+        transform: translateY(-100%);
       }
       100% {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInFromBottom {
+      0% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+      }
+    }
+
+    /* Elastic Scroll Effect */
+    @keyframes elasticScroll {
+      0%, 100% {
+        transform: scaleY(1);
+      }
+      50% {
+        transform: scaleY(1.02);
       }
     }
 
     body {
-      animation: pageLoad 1.5s ease-in-out;
+      animation: elasticScroll 1s ease-in-out;
     }
 
     /* Footer */
@@ -237,8 +324,17 @@
 </head>
 <body>
   <header>
+    <img src="profile.png" alt="Saurabh Fodekar" class="profile-photo">
     <h1>SAURABH FODEKAR</h1>
-    <p>Pune, India | +91 9011218669 | <a href="mailto:svfodekar@gmail.com">svfodekar@gmail.com</a> | <a href="https://www.linkedin.com/in/saurabh-fodekar-b094591b4" target="_blank">LinkedIn</a></p>
+    <p>
+      <i class="fas fa-map-marker-alt"></i> Pune, India |
+      <i class="fas fa-phone"></i> +91 9011218669 |
+      <i class="fas fa-envelope"></i> <a href="mailto:svfodekar@gmail.com">svfodekar@gmail.com</a>
+    </p>
+    <div class="header-links">
+      <a href="https://www.linkedin.com/in/saurabh-fodekar-b094591b4" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="resume.pdf" download><i class="fas fa-download"></i> Resume</a>
+    </div>
   </header>
 
   <div class="container">
@@ -364,29 +460,33 @@
       <div class="card">
         <h3>Redirect to Local Server (Chrome Extension)</h3>
         <p>A development tool that seamlessly connects a local server with a live frontend by redirecting APIs. Eliminates the need for external tools like Postman, enabling in-browser API testing and debugging.</p>
-        <div class="open-source-links">
-          <a href="https://github.com/yourusername/redirect-to-local-server" target="_blank"><i class="fab fa-github github-icon"></i></a>
+        <div class="project-links">
+          <a href="https://github.com/yourusername/redirect-to-local-server" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://chromewebstore.google.com/your-extension-link" target="_blank"><i class="fab fa-chrome"></i> Chrome Store</a>
+          <a href="chrome-extension-intro.mp4" target="_blank"><i class="fas fa-video"></i> Intro Video</a>
         </div>
       </div>
       <div class="card">
         <h3>Git-Postman-Sync Engine (Desktop Application)</h3>
         <p>An open-source tool that syncs Postman collections with GitHub, enhancing team collaboration and version control for API collections.</p>
-        <div class="open-source-links">
-          <a href="https://github.com/yourusername/git-postman-sync" target="_blank"><i class="fab fa-github github-icon"></i></a>
+        <div class="project-links">
+          <a href="https://github.com/yourusername/git-postman-sync" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://your-website-link.com" target="_blank"><i class="fas fa-globe"></i> Website</a>
         </div>
       </div>
       <div class="card">
         <h3>Excel-as-Database (NPM Package)</h3>
         <p>A Node.js package that transforms Excel into a SQL-supported lightweight database.</p>
-        <div class="open-source-links">
-          <a href="https://github.com/yourusername/excel-as-database" target="_blank"><i class="fab fa-github github-icon"></i></a>
+        <div class="project-links">
+          <a href="https://github.com/yourusername/excel-as-database" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.npmjs.com/package/excel-as-database" target="_blank"><i class="fab fa-npm"></i> NPM</a>
         </div>
       </div>
       <div class="card">
         <h3>Expense Split Backend</h3>
         <p>Scalable backend with expense distribution algorithm, MFA, JWT authentication, third-party logins, email notifications, and payment integration (in progress).</p>
-        <div class="open-source-links">
-          <a href="https://github.com/yourusername/expense-split-backend" target="_blank"><i class="fab fa-github github-icon"></i></a>
+        <div class="project-links">
+          <a href="https://github.com/yourusername/expense-split-backend" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
     </section>
@@ -395,4 +495,6 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2023 Saurabh Fodekar. All rights reserved.</p>
-  </footer
+  </footer>
+</body>
+</html>
