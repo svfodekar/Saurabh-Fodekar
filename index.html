@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saurabh Fodekar - Professional Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+
+    a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff6b6b;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(135deg, #1a1a1a, #2a2a40);
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    /* Section Styles */
+    section {
+      margin: 60px 0;
+      padding: 30px;
+      background: #2a2a40;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Summary Section */
+    .summary {
+      font-size: 1.1em;
+      line-height: 1.8;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Education and Experience Sections */
+    .education, .experience, .projects, .skills {
+      margin-bottom: 40px;
+    }
+
+    .education h3, .experience h3, .projects h3, .skills h3 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .education p, .experience p, .projects p, .skills p {
+      margin: 10px 0;
+      font-size: 1.1em;
+      color: #e0e0e0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .experience ul, .projects ul, .skills ul {
+      padding-left: 20px;
+    }
+
+    .experience ul li, .projects ul li, .skills ul li {
+      margin-bottom: 15px;
+      color: #e0e0e0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Technology Stack Table-Like Layout */
+    .tech-stack {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 20px;
+    }
+
+    .tech-stack .category {
+      background: #3a3a5a;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tech-stack h3 {
+      margin-bottom: 15px;
+      color: #ffffff;
+      font-size: 1.4em;
+      border-bottom: 2px solid #ff6b6b;
+      padding-bottom: 5px;
+    }
+
+    .tech-stack p {
+      margin: 10px 0;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.1em;
+    }
+
+    .star-rating {
+      color: #ffd166;
+      font-size: 1.2em;
+      display: inline-block;
+    }
+
+    .star-rating span {
+      display: inline-block;
+      animation: popcorn 1s infinite ease-in-out;
+    }
+
+    @keyframes popcorn {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Open Source Links */
+    .open-source-links {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .open-source-links a {
+      color: #ff6b6b;
+      margin-right: 10px;
+      font-size: 1em;
+    }
+
+    .open-source-links a:hover {
+      color: #e0e0e0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a40);
+      color: #fff;
+      margin-top: 60px;
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SAURABH FODEKAR</h1>
+    <p>Pune, India | +91 9011218669 | <a href="mailto:svfodekar@gmail.com">svfodekar@gmail.com</a> | <a href="https://www.linkedin.com/in/saurabh-fodekar-b094591b4" target="_blank">LinkedIn</a></p>
+  </header>
+
+  <div class="container">
+    <!-- Summary Section -->
+    <section class="summary">
+      <h2>Summary</h2>
+      <div class="card">
+        <p>Software Developer with 5+ years of experience in designing and developing scalable applications using Node.js, JavaScript, TypeScript, Express.js, and PostgreSQL. Proven expertise in delivering high-performance solutions focusing on innovation, collaboration, and continuous learning. Passionate about creating reliable and efficient software that meets modern industry standards.</p>
+        <p>Specialized in backend development, cloud integration, and automation tools. Adept at working in Agile environments and leading cross-functional teams to deliver projects on time and within budget.</p>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Marathwada Mitra-Mandal College of Engineering, Pune</h3>
+        <p>Bachelor’s Degree in Mechanical Engineering | Aug 2015 - May 2019</p>
+        <p>Relevant Coursework: Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems.</p>
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section>
+      <div class="tech-stack">
+        <!-- Programming Languages -->
+        <div class="category">
+          <h3>Programming Languages</h3>
+          <p>Node.js <span class="star-rating">★★★★★</span></p>
+          <p>JavaScript <span class="star-rating">★★★★★</span></p>
+          <p>TypeScript <span class="star-rating">★★★☆☆</span></p>
+          <p>C++ <span class="star-rating">★★☆☆☆</span></p>
+          <p>C <span class="star-rating">★★☆☆☆</span></p>
+          <p>Java <span class="star-rating">★★☆☆☆</span></p>
+        </div>
+        <!-- Databases -->
+        <div class="category">
+          <h3>Databases</h3>
+          <p>PostgreSQL <span class="star-rating">★★★★☆</span></p>
+          <p>MySQL <span class="star-rating">★★★★☆</span></p>
+          <p>Redis Cache <span class="star-rating">★★★★☆</span></p>
+          <p>MongoDB <span class="star-rating">★☆☆☆☆</span></p>
+        </div>
+        <!-- Web Technologies -->
+        <div class="category">
+          <h3>Web Technologies</h3>
+          <p>Express.js <span class="star-rating">★★★★☆</span></p>
+          <p>RESTful APIs <span class="star-rating">★★★★★</span></p>
+          <p>GraphQL <span class="star-rating">★★★☆☆</span></p>
+        </div>
+        <!-- Cloud & DevOps -->
+        <div class="category">
+          <h3>Cloud & DevOps</h3>
+          <p>Azure Functions <span class="star-rating">★★★★☆</span></p>
+          <p>Azure Queue/Blob/Key Vault <span class="star-rating">★★★★☆</span></p>
+          <p>AWS Lambda <span class="star-rating">★★★☆☆</span></p>
+        </div>
+        <!-- Unit Testing -->
+        <div class="category">
+          <h3>Unit Testing</h3>
+          <p>Mocha + Chai <span class="star-rating">★★★★☆</span></p>
+        </div>
+        <!-- Tools -->
+        <div class="category">
+          <h3>Tools</h3>
+          <p>WebStorm <span class="star-rating">★★★☆☆</span></p>
+          <p>Visual Studio <span class="star-rating">★★★★★</span></p>
+          <p>Postman <span class="star-rating">★★★★★</span></p>
+          <p>Git <span class="star-rating">★★★★★</span></p>
+          <p>Docker <span class="star-rating">★★★☆☆</span></p>
+          <p>JIRA <span class="star-rating">★★★★☆</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Frontrol Software System, Pune | Software Developer</h3>
+        <p>Oct 2023 – Present</p>
+        <ul>
+          <li>Developed a scalable project management tool using Agile methodologies with Node.js, Express, PostgreSQL, Docker, and serverless functions, ensuring optimized performance, reliability, and resource efficiency.</li>
+          <li>Designed and implemented a multi-tenant architecture with a dynamic database/schema switching Engine, providing isolated client data environments and supporting seamless customization.</li>
+          <li>Built an Auto Jira Error Log Engine integrating Azure Queue, Blob Storage, Serverless Functions, and Jira APIs to automatically capture and track unhandled errors, improving debugging and issue resolution.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Rainclouds Global Solutions, Pune | Software Developer</h3>
+        <p>Jun 2022 – Sept 2023</p>
+        <ul>
+          <li>Developed and maintained high-performance web applications in the compliance and cybersecurity domain using Node.js, Express.js, and PostgreSQL, ensuring scalability and seamless user experiences.</li>
+          <li>Enhanced authentication and security protocols by implementing SAML, OAuth, and Passport.js, securing user access while maintaining regulatory compliance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Open-Source Projects Section -->
+    <section class="projects">
+      <h2>Open-Source Projects</h2>
+      <div class="card">
+        <h3>Redirect to Local Server (Chrome Extension)</h3>
+        <p>A development tool that seamlessly connects a local server with a live frontend by redirecting APIs. Eliminates the need for external tools like Postman, enabling in-browser API testing and debugging.</p>
+        <div class="open-source-links">
+          <a href="https://github.com/yourusername/redirect-to-local-server" target="_blank">GitHub Link</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Git-Postman-Sync Engine (Desktop Application)</h3>
+        <p>An open-source tool that syncs Postman collections with GitHub, enhancing team collaboration and version control for API collections.</p>
+        <div class="open-source-links">
+          <a href="https://github.com/yourusername/git-postman-sync" target="_blank">GitHub Link</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Excel-as-Database (NPM Package)</h3>
+        <p>A Node.js package that transforms Excel into a SQL-supported lightweight database.</p>
+        <div class="open-source-links">
+          <a href="https://github.com/yourusername/excel-as-database" target="_blank">GitHub Link</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Expense Split Backend</h3>
+        <p>Scalable backend with expense distribution algorithm, MFA, JWT authentication, third-party logins, email notifications, and payment integration (in progress).</p>
+        <div class="open-source-links">
+          <a href="https://github.com/yourusername/expense-split-backend" target="_blank">GitHub Link</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <ul>
+          <li>Backend Development: Node.js, Express.js, RESTful APIs, GraphQL</li>
+          <li>Database Management: PostgreSQL, MySQL, MongoDB, Redis</li>
+          <li>Cloud & DevOps: Azure, AWS, Docker, Kubernetes, CI/CD</li>
+          <li>Testing: Mocha, Chai, Unit Testing, Integration Testing</li>
+          <li>Soft Skills: Agile Methodologies, Team Collaboration, Problem Solving</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Saurabh Fodekar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
