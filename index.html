@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saurabh Fodekar - Professional Portfolio</title>
+  <title>Saurabh Fodekar - Professional Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* General Styles */
     body {
@@ -69,7 +70,12 @@
       border-radius: 15px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      animation: slideUp 1s ease-in-out;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 12px 48px rgba(255, 107, 107, 0.5);
+      transform: translateY(-5px);
     }
 
     section h2 {
@@ -80,47 +86,57 @@
       animation: fadeIn 1.5s ease-in-out;
     }
 
+    /* Card Styles */
+    .card {
+      background: #3a3a5a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(255, 107, 107, 0.5);
+      transform: translateY(-5px);
+    }
+
     /* Summary Section */
     .summary {
       font-size: 1.1em;
       line-height: 1.8;
-      animation: fadeIn 2s ease-in-out;
     }
 
     /* Education and Experience Sections */
-    .education, .experience, .projects, .skills {
+    .education, .experience, .projects {
       margin-bottom: 40px;
     }
 
-    .education h3, .experience h3, .projects h3, .skills h3 {
+    .education h3, .experience h3, .projects h3 {
       margin: 0;
       font-size: 1.5em;
       color: #ffffff;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 1.5s ease-in-out;
     }
 
-    .education p, .experience p, .projects p, .skills p {
+    .education p, .experience p, .projects p {
       margin: 10px 0;
       font-size: 1.1em;
       color: #e0e0e0;
-      animation: fadeIn 2s ease-in-out;
     }
 
-    .experience ul, .projects ul, .skills ul {
+    .experience ul, .projects ul {
       padding-left: 20px;
     }
 
-    .experience ul li, .projects ul li, .skills ul li {
+    .experience ul li, .projects ul li {
       margin-bottom: 15px;
       color: #e0e0e0;
-      animation: fadeIn 2s ease-in-out;
     }
 
     /* Technology Stack Table-Like Layout */
     .tech-stack {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
       gap: 20px;
     }
 
@@ -129,6 +145,12 @@
       padding: 20px;
       border-radius: 15px;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .tech-stack .category:hover {
+      box-shadow: 0 8px 32px rgba(255, 107, 107, 0.5);
+      transform: translateY(-5px);
     }
 
     .tech-stack h3 {
@@ -148,6 +170,7 @@
       font-size: 1.1em;
     }
 
+    /* Star Ratings */
     .star-rating {
       color: #ffd166;
       font-size: 1.2em;
@@ -168,36 +191,31 @@
       }
     }
 
-    /* Open Source Links */
-    .open-source-links {
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    .open-source-links a {
+    /* GitHub Icons */
+    .github-icon {
+      font-size: 1.5em;
       color: #ff6b6b;
-      margin-right: 10px;
-      font-size: 1em;
+      transition: color 0.3s ease;
     }
 
-    .open-source-links a:hover {
+    .github-icon:hover {
       color: #e0e0e0;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Page Opening Animation */
+    @keyframes pageLoad {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
+    body {
+      animation: pageLoad 1.5s ease-in-out;
     }
 
     /* Footer */
@@ -228,8 +246,7 @@
     <section class="summary">
       <h2>Summary</h2>
       <div class="card">
-        <p>Software Developer with 5+ years of experience in designing and developing scalable applications using Node.js, JavaScript, TypeScript, Express.js, and PostgreSQL. Proven expertise in delivering high-performance solutions focusing on innovation, collaboration, and continuous learning. Passionate about creating reliable and efficient software that meets modern industry standards.</p>
-        <p>Specialized in backend development, cloud integration, and automation tools. Adept at working in Agile environments and leading cross-functional teams to deliver projects on time and within budget.</p>
+        <p>Software Developer with 5 years of experience in designing and developing scalable applications using Node.js, JavaScript, TypeScript, Express.js, and PostgreSQL. Proven expertise in delivering high-performance solutions focusing on innovation, collaboration, and continuous learning. Passionate about creating reliable and efficient software that meets modern industry standards.</p>
       </div>
     </section>
 
@@ -239,12 +256,12 @@
       <div class="card">
         <h3>Marathwada Mitra-Mandal College of Engineering, Pune</h3>
         <p>Bachelor’s Degree in Mechanical Engineering | Aug 2015 - May 2019</p>
-        <p>Relevant Coursework: Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems.</p>
       </div>
     </section>
 
     <!-- Technology Stack Section -->
     <section>
+      <h2>Technology Stack</h2>
       <div class="tech-stack">
         <!-- Programming Languages -->
         <div class="category">
@@ -256,6 +273,13 @@
           <p>C <span class="star-rating">★★☆☆☆</span></p>
           <p>Java <span class="star-rating">★★☆☆☆</span></p>
         </div>
+        <!-- Web Technologies -->
+        <div class="category">
+          <h3>Web Technologies</h3>
+          <p>Express.js <span class="star-rating">★★★★☆</span></p>
+          <p>RESTful APIs <span class="star-rating">★★★★★</span></p>
+          <p>GraphQL <span class="star-rating">★★★☆☆</span></p>
+        </div>
         <!-- Databases -->
         <div class="category">
           <h3>Databases</h3>
@@ -263,13 +287,6 @@
           <p>MySQL <span class="star-rating">★★★★☆</span></p>
           <p>Redis Cache <span class="star-rating">★★★★☆</span></p>
           <p>MongoDB <span class="star-rating">★☆☆☆☆</span></p>
-        </div>
-        <!-- Web Technologies -->
-        <div class="category">
-          <h3>Web Technologies</h3>
-          <p>Express.js <span class="star-rating">★★★★☆</span></p>
-          <p>RESTful APIs <span class="star-rating">★★★★★</span></p>
-          <p>GraphQL <span class="star-rating">★★★☆☆</span></p>
         </div>
         <!-- Cloud & DevOps -->
         <div class="category">
@@ -306,6 +323,9 @@
           <li>Developed a scalable project management tool using Agile methodologies with Node.js, Express, PostgreSQL, Docker, and serverless functions, ensuring optimized performance, reliability, and resource efficiency.</li>
           <li>Designed and implemented a multi-tenant architecture with a dynamic database/schema switching Engine, providing isolated client data environments and supporting seamless customization.</li>
           <li>Built an Auto Jira Error Log Engine integrating Azure Queue, Blob Storage, Serverless Functions, and Jira APIs to automatically capture and track unhandled errors, improving debugging and issue resolution.</li>
+          <li>Developed a Database Extension Engine allowing users to create and manage custom database tables directly from the UI, enabling enhanced flexibility for project management.</li>
+          <li>Integrated Azure Key Vault for secure secret management, eliminating .env file dependencies and enforcing strict role-based access control to safeguard sensitive credentials.</li>
+          <li>Implemented cron-triggered serverless functions to automate background tasks, optimize asynchronous workflows, and reduce processing latency.</li>
         </ul>
       </div>
       <div class="card">
@@ -314,6 +334,26 @@
         <ul>
           <li>Developed and maintained high-performance web applications in the compliance and cybersecurity domain using Node.js, Express.js, and PostgreSQL, ensuring scalability and seamless user experiences.</li>
           <li>Enhanced authentication and security protocols by implementing SAML, OAuth, and Passport.js, securing user access while maintaining regulatory compliance.</li>
+          <li>Generated comprehensive Swagger documentation to facilitate clear API communication, reducing integration time and improving team collaboration.</li>
+          <li>Developed a Virtual Cloud Desktop (VCD) plug-in to integrate web applications with virtualized cloud platforms, enhancing accessibility and productivity in remote work environments.</li>
+          <li>Strengthened data security by implementing MFA and public-private key encryption, preventing unauthorized access and ensuring data confidentiality.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Capgemini India, Pune | Software Developer</h3>
+        <p>May 2021 – May 2022</p>
+        <ul>
+          <li>Engineered high-performance C++ and MFC desktop applications for Canon's X-ray image processing, optimizing image handling workflows.</li>
+          <li>Simultaneously developed scalable web applications using Node.js and Express.js, leveraging their efficiency for robust backend solutions.</li>
+          <li>Effectively collaborated with cross-functional teams to integrate desktop and web applications.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Prime Marketing, Pune | Welding Automation Engineer</h3>
+        <p>Aug 2019 – Apr 2021</p>
+        <ul>
+          <li>Specialized in welding automation, providing tailored solutions to optimize manufacturing efficiency.</li>
+          <li>Analyzed customer requirements, recommended automated welding systems, and collaborated with cross-functional teams to develop customized solutions, driving customer satisfaction and business growth.</li>
         </ul>
       </div>
     </section>
@@ -325,43 +365,29 @@
         <h3>Redirect to Local Server (Chrome Extension)</h3>
         <p>A development tool that seamlessly connects a local server with a live frontend by redirecting APIs. Eliminates the need for external tools like Postman, enabling in-browser API testing and debugging.</p>
         <div class="open-source-links">
-          <a href="https://github.com/yourusername/redirect-to-local-server" target="_blank">GitHub Link</a>
+          <a href="https://github.com/yourusername/redirect-to-local-server" target="_blank"><i class="fab fa-github github-icon"></i></a>
         </div>
       </div>
       <div class="card">
         <h3>Git-Postman-Sync Engine (Desktop Application)</h3>
         <p>An open-source tool that syncs Postman collections with GitHub, enhancing team collaboration and version control for API collections.</p>
         <div class="open-source-links">
-          <a href="https://github.com/yourusername/git-postman-sync" target="_blank">GitHub Link</a>
+          <a href="https://github.com/yourusername/git-postman-sync" target="_blank"><i class="fab fa-github github-icon"></i></a>
         </div>
       </div>
       <div class="card">
         <h3>Excel-as-Database (NPM Package)</h3>
         <p>A Node.js package that transforms Excel into a SQL-supported lightweight database.</p>
         <div class="open-source-links">
-          <a href="https://github.com/yourusername/excel-as-database" target="_blank">GitHub Link</a>
+          <a href="https://github.com/yourusername/excel-as-database" target="_blank"><i class="fab fa-github github-icon"></i></a>
         </div>
       </div>
       <div class="card">
         <h3>Expense Split Backend</h3>
         <p>Scalable backend with expense distribution algorithm, MFA, JWT authentication, third-party logins, email notifications, and payment integration (in progress).</p>
         <div class="open-source-links">
-          <a href="https://github.com/yourusername/expense-split-backend" target="_blank">GitHub Link</a>
+          <a href="https://github.com/yourusername/expense-split-backend" target="_blank"><i class="fab fa-github github-icon"></i></a>
         </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills">
-      <h2>Skills</h2>
-      <div class="card">
-        <ul>
-          <li>Backend Development: Node.js, Express.js, RESTful APIs, GraphQL</li>
-          <li>Database Management: PostgreSQL, MySQL, MongoDB, Redis</li>
-          <li>Cloud & DevOps: Azure, AWS, Docker, Kubernetes, CI/CD</li>
-          <li>Testing: Mocha, Chai, Unit Testing, Integration Testing</li>
-          <li>Soft Skills: Agile Methodologies, Team Collaboration, Problem Solving</li>
-        </ul>
       </div>
     </section>
   </div>
@@ -369,6 +395,4 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2023 Saurabh Fodekar. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  </footer
